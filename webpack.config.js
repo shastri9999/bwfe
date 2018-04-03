@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -33,6 +34,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+    new FaviconsWebpackPlugin('./src/images/logo.png'),
     new HtmlWebpackPlugin({
       title: 'Todo Manager',
       template: 'index.html',
