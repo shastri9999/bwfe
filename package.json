@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "serve": "http-server"
+    "serve": "http-server dist/",
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "@types/react": "^16.3.2",
@@ -25,6 +26,7 @@
     "style-loader": "^0.20.3",
     "typescript": "^2.8.1",
     "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
   }
 }
