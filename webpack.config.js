@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CheckerPlugin } = require('awesome-typescript-loader');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -7,6 +9,9 @@ module.exports = {
     path: __dirname + '/dist',
   },
   devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
@@ -21,9 +26,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Todo Manager',
       template: 'index.html',
     }),
+    new CheckerPlugin(),
   ],
 };

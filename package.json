@@ -2,14 +2,14 @@
   "name": "bwfe",
   "version": "0.1.0",
   "description": "A basic Todo Manager written in React + Typescript",
-  "main": "index.js",
   "repository": "git@github.com:shastri9999/bwfe.git",
   "author": "Subramanyam Shastri <shastri9999@gmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "build": "webpack",
     "serve": "http-server dist/",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --open"
   },
   "dependencies": {
     "@types/react": "^16.3.2",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^4.0.1",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
