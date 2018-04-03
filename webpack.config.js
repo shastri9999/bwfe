@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -18,4 +20,10 @@ module.exports = {
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Todo Manager',
+      template: 'index.html',
+    }),
+  ],
 };
