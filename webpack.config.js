@@ -4,14 +4,17 @@ module.exports = {
     filename: 'bundle.js',
     path: __dirname + '/dist',
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
   },
