@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { CheckerPlugin } = require('awesome-typescript-loader');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -21,7 +20,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+      {
+        test: /\.tsx?$/,
+        loaders: ['babel-loader', 'ts-loader'],
+      },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
   },
@@ -31,6 +33,5 @@ module.exports = {
       title: 'Todo Manager',
       template: 'index.html',
     }),
-    new CheckerPlugin(),
   ],
 };

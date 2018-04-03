@@ -7,18 +7,22 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "serve": "http-server dist/",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open --mode=development"
   },
   "dependencies": {
     "@types/react": "^16.3.2",
     "@types/react-dom": "^16.0.4",
     "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "react-dom": "^16.3.0",
+    "ts-loader": "^4.1.0"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^4.0.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
