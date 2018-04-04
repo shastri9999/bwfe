@@ -8,6 +8,7 @@ import TodosPage from '../components/TodosPage';
 import { UserType } from '../types';
 import AuthenticateRoute from './AuthenticateRoute';
 import { createPath, editPath, loginPath, todosPath } from './paths';
+import RedirectIfAuthenticated from './RedirectIfAuthenticated';
 
 interface IRouteProps {
   authenticatedUser: UserType;
@@ -16,7 +17,13 @@ interface IRouteProps {
 const Routes: React.SFC<IRouteProps> = ({ authenticatedUser }) => {
   return (
     <Switch>
-      <Route path={loginPath} component={LoginPage} />
+      <RedirectIfAuthenticated
+        exact={true}
+        path={loginPath}
+        component={LoginPage}
+        redirectPath={todosPath}
+        authenticatedUser={authenticatedUser}
+      />
       <AuthenticateRoute
         path={todosPath}
         component={TodosPage}
