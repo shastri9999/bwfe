@@ -10,7 +10,7 @@ export default class App extends React.Component<{}> {
       <div className="main">
         <Header title="Hello World" />
         <div className="container">
-          <Routes authenticatedUser={null} />
+          <Routes authenticatedUser={UserType.Employee} />
         </div>
       </div>
     );

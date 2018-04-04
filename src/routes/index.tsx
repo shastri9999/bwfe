@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { loginPath, editPath, createPath, todosPath } from './paths';
 import LoginPage from '../components/LoginPage';
 import TodosPage from '../components/TodosPage';
@@ -32,6 +32,7 @@ const Routes: React.SFC<IRouteProps> = ({ authenticatedUser }) => {
         component={EditPage}
         authenticatedUser={authenticatedUser}
       />
+      <Redirect from="/" to={todosPath} />
       <Route component={ErrorPage} />
     </Switch>
   );
