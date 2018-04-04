@@ -6,9 +6,11 @@ import '../styles/normalize.css';
 export default class App extends React.Component<{}> {
   render() {
     return (
-      <div>
+      <div className="main">
         <Header title="Hello World" />
-        <Routes />
+        <div className="container">
+          <Routes />
+        </div>
       </div>
     );
   }

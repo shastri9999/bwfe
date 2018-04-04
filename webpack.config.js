@@ -28,7 +28,11 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loaders: ['babel-loader', 'ts-loader'],
+        use: ['babel-loader', 'ts-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
       },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],
