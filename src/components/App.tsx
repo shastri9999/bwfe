@@ -18,11 +18,16 @@ export interface IAppProps extends RouteComponentProps<any> {
 
 class App extends React.Component<IAppProps> {
   public render() {
+    const { authenticatedUser } = this.props;
     return (
       <div className="main">
-        <Header title="Hello World" />
+        <Header
+          title="Hello World"
+          signOut={this.signOut}
+          authenticatedUser={authenticatedUser}
+        />
         <div className="container">
-          <Routes authenticatedUser={this.props.authenticatedUser} />
+          <Routes authenticatedUser={authenticatedUser} />
         </div>
       </div>
     );
