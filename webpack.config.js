@@ -11,6 +11,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
