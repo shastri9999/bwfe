@@ -1,14 +1,14 @@
-import * as ActionTypes from './ActionTypes';
-import keys from './ActionTypeKeys';
 import * as Types from '../types';
+import keys from './ActionTypeKeys';
+import * as ActionTypes from './ActionTypes';
 
 export const signIn = (
   authenticatedUser: Types.UserType
 ): ActionTypes.ISignInAction => ({
-  type: keys.LOGIN,
   payload: {
     authenticatedUser,
   },
+  type: keys.LOGIN,
 });
 
 export const signOut = (): ActionTypes.ISignOutAction => ({
@@ -16,27 +16,27 @@ export const signOut = (): ActionTypes.ISignOutAction => ({
 });
 
 export const addTodo = (todo: Types.ITodo): ActionTypes.IAddTodoAction => ({
-  type: keys.ADD_TODO,
   payload: {
     todo,
   },
+  type: keys.ADD_TODO,
 });
 
 export const markTodoComplete = (
   id: string
 ): ActionTypes.IMarkTodoCompleteAction => ({
-  type: keys.MARK_TODO_COMPLETE,
   payload: { id },
+  type: keys.MARK_TODO_COMPLETE,
 });
 
 export const markTodoInComplete = (
   id: string
 ): ActionTypes.IMarkTodoInCompleteAction => ({
-  type: keys.MARK_TODO_INCOMPLETE,
   payload: { id },
+  type: keys.MARK_TODO_INCOMPLETE,
 });
 
 export const deleteTodo = (id: string): ActionTypes.IDeleteTodoAction => ({
-  type: keys.DELETE_TODO,
   payload: { id },
+  type: keys.DELETE_TODO,
 });

@@ -1,5 +1,5 @@
+import { ITodo, UserType } from '../types';
 import keys from './ActionTypeKeys';
-import { UserType, ITodo } from '../types';
 
 export interface ISignInAction {
   readonly type: keys.LOGIN;

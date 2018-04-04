@@ -6,7 +6,7 @@ export interface IHeaderProps {
 }
 
 export default class Header extends React.Component<IHeaderProps> {
-  render() {
+  public render() {
     return (
       <header>
         <img src={Images.Logo} alt={this.props.title} className="logo" />

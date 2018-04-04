@@ -3,19 +3,19 @@ import { UserType } from '../../types';
 import Button from '../Button';
 
 export default class LoginPage extends React.Component<{}> {
-  onLogin = (role: UserType) => {
-    console.log(role);
+  public onLogin = (role: UserType) => {
+    /* ignore */
   };
 
-  onManagerLogin = () => {
+  public onManagerLogin = () => {
     this.onLogin(UserType.Manager);
   };
 
-  onEmployeeLogin = () => {
+  public onEmployeeLogin = () => {
     this.onLogin(UserType.Employee);
   };
 
-  render() {
+  public render() {
     return (
       <div className="login">
         <p>Please login to access list</p>

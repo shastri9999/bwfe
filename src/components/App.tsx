@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Header from './Header';
 import Routes from '../routes';
 import '../styles/normalize.css';
 import { UserType } from '../types';
+import Header from './Header';
 
 export default class App extends React.Component<{}> {
-  render() {
+  public render() {
     return (
       <div className="main">
         <Header title="Hello World" />

@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { UserType } from '../types';
-import { RouteRestrictions, loginPath, todosPath } from './paths';
+import { loginPath, RouteRestrictions, todosPath } from './paths';
 
 interface IAuthenticateRouteProps extends RouteProps {
   readonly authenticatedUser: UserType | null;

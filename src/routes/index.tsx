@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { loginPath, editPath, createPath, todosPath } from './paths';
-import LoginPage from '../components/LoginPage';
-import TodosPage from '../components/TodosPage';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import CreatePage from '../components/CreatePage';
 import EditPage from '../components/EditPage';
 import ErrorPage from '../components/ErrorPage';
+import LoginPage from '../components/LoginPage';
+import TodosPage from '../components/TodosPage';
 import { UserType } from '../types';
 import AuthenticateRoute from './AuthenticateRoute';
+import { createPath, editPath, loginPath, todosPath } from './paths';
 
 interface IRouteProps {
   authenticatedUser: UserType;
@@ -32,7 +32,7 @@ const Routes: React.SFC<IRouteProps> = ({ authenticatedUser }) => {
         component={EditPage}
         authenticatedUser={authenticatedUser}
       />
-      <Redirect from="/" to={todosPath} />
+      <Redirect from="/" to={todosPath} exact={true} />
       <Route component={ErrorPage} />
     </Switch>
   );

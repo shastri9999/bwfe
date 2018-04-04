@@ -1,12 +1,12 @@
 import ActionTypeKeys from '../actions/ActionTypeKeys';
 import ActionTypes, {
   IAddTodoAction,
+  IDeleteTodoAction,
   IEditTodoAction,
   IMarkTodoCompleteAction,
   IMarkTodoInCompleteAction,
-  IDeleteTodoAction,
 } from '../actions/ActionTypes';
-import { UserType, ITodo, TodoStatus } from '../types';
+import { ITodo, TodoStatus, UserType } from '../types';
 import initialState from './initialState';
 
 const onAddTodo = (
@@ -26,8 +26,8 @@ const onEditTodo = (
       return {
         ...todo,
         id,
-        title,
         summary,
+        title,
       };
     }
     return todo;
