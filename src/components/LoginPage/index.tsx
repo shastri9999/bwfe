@@ -1,20 +1,19 @@
 import * as React from 'react';
-import { UserType } from '../../types';
+import { connect } from 'react-redux';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { bindActionCreators, Dispatch } from 'redux';
+
+import { signIn as signInAction } from '../../actions';
+import { ISignInAction } from '../../actions/ActionTypes';
+import { todosPath } from '../../routes/paths';
+import { IStoreState, UserType } from '../../types';
 import Button from '../Button';
 
-export default class LoginPage extends React.Component<{}> {
-  public onLogin = (role: UserType) => {
-    /* ignore */
-  };
+export interface ILoginPageProps extends RouteComponentProps<any> {
+  signIn: (role: UserType) => ISignInAction;
+}
 
-  public onManagerLogin = () => {
-    this.onLogin(UserType.Manager);
-  };
-
-  public onEmployeeLogin = () => {
-    this.onLogin(UserType.Employee);
-  };
-
+class LoginPage extends React.Component<ILoginPageProps> {
   public render() {
     return (
       <div className="login">
@@ -28,4 +27,25 @@ export default class LoginPage extends React.Component<{}> {
       </div>
     );
   }
+
+  private onLogin = (role: UserType) => {
+    this.props.history.push(todosPath);
+    this.props.signIn(role);
+  };
+
+  private onManagerLogin = () => {
+    this.onLogin(UserType.Manager);
+  };
+
+  private onEmployeeLogin = () => {
+    this.onLogin(UserType.Employee);
+  };
 }
+
+const mapDispatchToProps = (dispatch: Dispatch<IStoreState>) => ({
+  signIn: bindActionCreators(signInAction, dispatch),
+});
+
+export default withRouter(
+  connect<{}, {}, ILoginPageProps>(null, mapDispatchToProps)(LoginPage)
+);

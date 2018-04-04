@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+
 import CreatePage from '../components/CreatePage';
 import EditPage from '../components/EditPage';
 import ErrorPage from '../components/ErrorPage';
