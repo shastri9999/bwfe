@@ -6,14 +6,32 @@ import TodosPage from '../components/TodosPage';
 import CreatePage from '../components/CreatePage';
 import EditPage from '../components/EditPage';
 import ErrorPage from '../components/ErrorPage';
+import { UserType } from '../types';
+import AuthenticateRoute from './AuthenticateRoute';
 
-const Routes = () => {
+interface IRouteProps {
+  authenticatedUser: UserType;
+}
+
+const Routes: React.SFC<IRouteProps> = ({ authenticatedUser }) => {
   return (
     <Switch>
       <Route path={loginPath} component={LoginPage} />
-      <Route path={todosPath} component={TodosPage} />
-      <Route path={createPath} component={CreatePage} />
-      <Route path={editPath} component={EditPage} />
+      <AuthenticateRoute
+        path={todosPath}
+        component={TodosPage}
+        authenticatedUser={authenticatedUser}
+      />
+      <AuthenticateRoute
+        path={createPath}
+        component={CreatePage}
+        authenticatedUser={authenticatedUser}
+      />
+      <AuthenticateRoute
+        path={editPath}
+        component={EditPage}
+        authenticatedUser={authenticatedUser}
+      />
       <Route component={ErrorPage} />
     </Switch>
   );

@@ -18,6 +18,7 @@ export default class LoginPage extends React.Component<{}> {
   render() {
     return (
       <div className="login">
+        <p>Please login to access list</p>
         <Button onClick={this.onEmployeeLogin}>{`Login as ${
           UserType.Employee
         }`}</Button>
