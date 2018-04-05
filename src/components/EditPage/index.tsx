@@ -121,7 +121,7 @@ class EditPage extends React.Component<IEditPageProps, IEditPageState> {
       errors.summary = 'Summary cannot be empty!';
     }
     if (title && summary) {
-      this.props.editTodo(this.props.todo.id, summary, title);
+      this.props.editTodo(this.props.todo.id, title, summary);
       this.props.history.push(todosPath);
     }
     this.setState({ errors });
