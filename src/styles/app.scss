@@ -178,9 +178,19 @@ form.primary {
     &.status {
       font-size: 12px;
       color: firebrick;
-      .done & {
-        color: seagreen;
+      .action {
+        margin-left: 6px;
       }
+    }
+  }
+  &.done > div {
+    &.title,
+    &.summary {
+      color: grey;
+      text-decoration: line-through;
+    }
+    &.status {
+      color: seagreen;
     }
   }
 }

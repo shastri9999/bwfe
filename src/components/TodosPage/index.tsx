@@ -14,7 +14,7 @@ import {
   IMarkTodoInCompleteAction,
 } from '../../actions/ActionTypes';
 import { createPath, todosPath } from '../../routes/paths';
-import { IStoreState, ITodo, UserType } from '../../types';
+import { IStoreState, ITodo, TodoStatus, UserType } from '../../types';
 import Button from '../Button';
 import Todo from '../Todo';
 
@@ -22,8 +22,8 @@ export interface ITodosPageProps extends RouteComponentProps<any> {
   readonly authenticatedUser: UserType;
   readonly todos: ITodo[];
   deleteTodo: (id: string) => IDeleteTodoAction;
-  markTodoComplete: (id: string) => IMarkTodoCompleteAction;
-  markTodoInComplete: (id: string) => IMarkTodoInCompleteAction;
+  markComplete: (id: string) => IMarkTodoCompleteAction;
+  markInComplete: (id: string) => IMarkTodoInCompleteAction;
 }
 
 class TodosPage extends React.Component<ITodosPageProps> {
@@ -48,12 +48,35 @@ class TodosPage extends React.Component<ITodosPageProps> {
               authenticatedUser={authenticatedUser}
               todo={todo}
               key={todo.id}
+              onStatusClick={this.toggleTodo(todo)}
+              onDeleteClick={this.deleteTodo(todo)}
             />
           ))}
         </div>
       </div>
     );
   }
+
+  private toggleTodo = (todo: ITodo) => (
+    e: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    e.preventDefault();
+    if (todo.status === TodoStatus.Completed) {
+      this.props.markInComplete(todo.id);
+    } else {
+      this.props.markComplete(todo.id);
+    }
+  };
+
+  private deleteTodo = (todo: ITodo) => (
+    e: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    e.preventDefault();
+    const shouldDelete = confirm('Are you sure you want to delete this Todo?');
+    if (shouldDelete) {
+      this.props.deleteTodo(todo.id);
+    }
+  };
 }
 
 const mapStateToProps = (state: IStoreState) => ({

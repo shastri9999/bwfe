@@ -4,8 +4,16 @@ import { IStoreState, ITodo, TodoStatus, UserType } from '../../types';
 export interface ITodoProps {
   readonly authenticatedUser: UserType;
   readonly todo: ITodo;
+  onStatusClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  onDeleteClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
-const Todo: React.SFC<ITodoProps> = ({ todo }) => {
+const Todo: React.SFC<ITodoProps> = ({
+  todo,
+  authenticatedUser,
+  onStatusClick,
+  onDeleteClick,
+}) => {
+  const actions = [TodoStatus.Completed, TodoStatus.Incomplete];
   return (
     <div
       className={`todo ${
@@ -15,7 +23,20 @@ const Todo: React.SFC<ITodoProps> = ({ todo }) => {
       <div className="id">{todo.id}</div>
       <div className="title">{todo.title}</div>
       <div className="summary">{todo.summary}</div>
-      <div className="status">{todo.status}</div>
+      <div className="status">
+        {todo.status}
+        {authenticatedUser === UserType.Employee ? (
+          <a href="#" onClick={onStatusClick} className="action">
+            Mark {actions.filter(s => s !== todo.status)[0]}
+          </a>
+        ) : (
+          <React.Fragment>
+            <a href="#" onClick={onDeleteClick} className="action">
+              Delete
+            </a>
+          </React.Fragment>
+        )}
+      </div>
     </div>
   );
 };
