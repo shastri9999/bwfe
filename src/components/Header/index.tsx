@@ -21,24 +21,6 @@ export default class Header extends React.Component<IHeaderProps> {
           <div className="title">{this.props.title}</div>
         </NavLink>
         <div className="right">
-          {authenticatedUser === UserType.Manager ? (
-            <React.Fragment>
-              <NavLink
-                to={createPath}
-                className="nav-link"
-                activeClassName="active"
-              >
-                Create
-              </NavLink>
-              <NavLink
-                to={editPath}
-                className="nav-link"
-                activeClassName="active"
-              >
-                Edit
-              </NavLink>
-            </React.Fragment>
-          ) : null}
           {authenticatedUser !== null ? (
             <div className="avatar">
               <div className="info">Logged in as {authenticatedUser}</div>

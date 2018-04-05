@@ -6,6 +6,9 @@
   "author": "Subramanyam Shastri <shastri9999@gmail.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": "~9.7.1"
+  },
   "scripts": {
     "build": "webpack --mode=production",
     "serve": "http-server dist/ --push-state",

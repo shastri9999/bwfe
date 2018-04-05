@@ -18,6 +18,7 @@ interface IErrors {
   summary: string;
   title: string;
 }
+
 export interface ICreatePageState {
   readonly title: string;
   readonly summary: string;
