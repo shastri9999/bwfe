@@ -22,6 +22,19 @@ export const addTodo = (todo: Types.ITodo): ActionTypes.IAddTodoAction => ({
   type: keys.ADD_TODO,
 });
 
+export const editTodo = (
+  id: string,
+  title: string,
+  summary: string
+): ActionTypes.IEditTodoAction => ({
+  payload: {
+    id,
+    summary,
+    title,
+  },
+  type: keys.EDIT_TODO,
+});
+
 export const markTodoComplete = (
   id: string
 ): ActionTypes.IMarkTodoCompleteAction => ({

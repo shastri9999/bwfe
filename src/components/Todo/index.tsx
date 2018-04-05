@@ -6,12 +6,14 @@ export interface ITodoProps {
   readonly todo: ITodo;
   onStatusClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   onDeleteClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  onEditClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 const Todo: React.SFC<ITodoProps> = ({
   todo,
   authenticatedUser,
   onStatusClick,
   onDeleteClick,
+  onEditClick,
 }) => {
   const actions = [TodoStatus.Completed, TodoStatus.Incomplete];
   return (
@@ -31,6 +33,9 @@ const Todo: React.SFC<ITodoProps> = ({
           </a>
         ) : (
           <React.Fragment>
+            <a href="#" onClick={onEditClick} className="action">
+              Edit
+            </a>
             <a href="#" onClick={onDeleteClick} className="action">
               Delete
             </a>

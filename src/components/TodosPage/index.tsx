@@ -13,7 +13,7 @@ import {
   IMarkTodoCompleteAction,
   IMarkTodoInCompleteAction,
 } from '../../actions/ActionTypes';
-import { createPath, todosPath } from '../../routes/paths';
+import { createPath, editPath, todosPath } from '../../routes/paths';
 import { IStoreState, ITodo, TodoStatus, UserType } from '../../types';
 import Button from '../Button';
 import Todo from '../Todo';
@@ -50,6 +50,7 @@ class TodosPage extends React.Component<ITodosPageProps> {
               key={todo.id}
               onStatusClick={this.toggleTodo(todo)}
               onDeleteClick={this.deleteTodo(todo)}
+              onEditClick={this.editTodo(todo)}
             />
           ))}
         </div>
@@ -76,6 +77,13 @@ class TodosPage extends React.Component<ITodosPageProps> {
     if (shouldDelete) {
       this.props.deleteTodo(todo.id);
     }
+  };
+
+  private editTodo = (todo: ITodo) => (
+    e: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    e.preventDefault();
+    this.props.history.push(`${editPath}/${todo.id}`);
   };
 }
 

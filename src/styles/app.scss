@@ -109,6 +109,14 @@ button {
   align-items: stretch;
   min-width: 600px;
   max-width: 90vw;
+  h2 {
+    .id {
+      font-size: 10px;
+      font-style: italic;
+      color: grey;
+      margin-bottom: 14px;
+    }
+  }
   label {
     color: $primary-color;
     font-size: 12px;

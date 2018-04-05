@@ -58,6 +58,7 @@ class CreatePage extends React.Component<ICreatePageProps, ICreatePageState> {
           placeholder="How do you intend to accomplish that?"
           name="summary"
           id="summary"
+          value={this.state.summary}
           onChange={this.handleSummaryChange}
         />
         <div className="error">{this.state.errors.summary}</div>

@@ -36,7 +36,7 @@ const Routes: React.SFC<IRouteProps> = ({ authenticatedUser }) => {
         authenticatedUser={authenticatedUser}
       />
       <AuthenticateRoute
-        path={editPath}
+        path={`${editPath}/:todoId`}
         component={EditPage}
         authenticatedUser={authenticatedUser}
       />

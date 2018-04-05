@@ -12,7 +12,7 @@ import { IStoreState, UserType } from '../types';
 import Header from './Header';
 
 export interface IAppProps extends RouteComponentProps<any> {
-  authenticatedUser: UserType | null;
+  readonly authenticatedUser: UserType | null;
   signOut: () => ISignOutAction;
 }
 
