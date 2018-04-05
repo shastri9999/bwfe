@@ -1,6 +1,6 @@
 {
   "name": "bwfe",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A basic Todo Manager written in React + Typescript",
   "repository": "git@github.com:shastri9999/bwfe.git",
   "author": "Subramanyam Shastri <shastri9999@gmail.com>",
@@ -19,11 +19,13 @@
     "@types/react": "^16.3.2",
     "@types/react-dom": "^16.0.4",
     "@types/react-router-dom": "^4.2.6",
+    "@types/uuid": "^3.4.3",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "@types/react-redux": "^5.0.15",

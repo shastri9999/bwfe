@@ -41,7 +41,7 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new FaviconsWebpackPlugin('./src/images/logo.png'),
     new HtmlWebpackPlugin({
-      title: 'Todo Manager',
+      title: 'BW Todos',
       template: 'index.html',
     }),
   ],

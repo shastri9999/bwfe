@@ -9,16 +9,31 @@ $padding: 20px;
     $header-item-margin: 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     color: $primary-color;
     background-color: $secondary-color;
     padding: 10px;
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.08);
-    img.logo {
-      height: $logo-size;
-      width: $logo-size;
+    .home {
+      display: flex;
+      align-items: center;
+      img.logo {
+        height: $logo-size;
+        width: $logo-size;
+      }
+      .title {
+        margin-left: $header-item-margin;
+      }
     }
-    .title {
-      margin-left: $header-item-margin;
+    .right {
+      display: flex;
+      align-items: center;
+      .nav-link {
+        margin-right: $header-item-margin;
+        &.active {
+          color: $primary-color;
+        }
+      }
     }
   }
   .container {
@@ -52,7 +67,61 @@ button {
     color: $secondary-color;
     padding: 10px 15px;
   }
+  &.small {
+    padding: 3px;
+    border-radius: 1px;
+    font-size: 10px;
+  }
   &:active {
     opacity: 0.5;
   }
+}
+
+%primary-form {
+  background-color: $secondary-color;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.08);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 600px;
+  max-width: 90vw;
+  label {
+    color: $primary-color;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  input,
+  textarea {
+    border: none;
+    border-bottom: 1px solid $primary-color;
+    outline: none;
+    font-size: 14px;
+    margin-bottom: 30px;
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+    }
+    &:focus {
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+
+  .error {
+    position: relative;
+    top: -26px;
+    font-size: 10px;
+    color: red;
+  }
+
+  .buttons {
+    display: flex;
+    button {
+      margin-right: 8px;
+    }
+  }
+}
+
+form.primary {
+  @extend %primary-form;
 }

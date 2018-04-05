@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import * as Images from '../../images';
 import { createPath, editPath, todosPath } from '../../routes/paths';
 import { UserType } from '../../types';
@@ -16,25 +16,33 @@ export default class Header extends React.Component<IHeaderProps> {
     const { authenticatedUser } = this.props;
     return (
       <header>
-        <Link to={todosPath} className="home">
+        <NavLink to={todosPath} className="home" activeClassName="active">
           <img src={Images.Logo} alt={this.props.title} className="logo" />
           <div className="title">{this.props.title}</div>
-        </Link>
+        </NavLink>
         <div className="right">
           {authenticatedUser === UserType.Manager ? (
             <React.Fragment>
-              <Link to={createPath} className="nav-link">
+              <NavLink
+                to={createPath}
+                className="nav-link"
+                activeClassName="active"
+              >
                 Create
-              </Link>
-              <Link to={editPath} className="nav-link">
+              </NavLink>
+              <NavLink
+                to={editPath}
+                className="nav-link"
+                activeClassName="active"
+              >
                 Edit
-              </Link>
+              </NavLink>
             </React.Fragment>
           ) : null}
           {authenticatedUser !== null ? (
             <div className="avatar">
               <div className="info">Logged in as {authenticatedUser}</div>
-              <Button onClick={this.props.signOut} className="small">
+              <Button onClick={this.props.signOut} className="small primary">
                 Logout
               </Button>
             </div>

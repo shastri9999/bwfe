@@ -22,7 +22,7 @@ class App extends React.Component<IAppProps> {
     return (
       <div className="main">
         <Header
-          title="Hello World"
+          title="BW Todos"
           signOut={this.signOut}
           authenticatedUser={authenticatedUser}
         />
