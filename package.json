@@ -1,6 +1,6 @@
 {
   "name": "bwfe",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A basic Todo Manager written in React + Typescript",
   "repository": "git@github.com:shastri9999/bwfe.git",
   "author": "Subramanyam Shastri <shastri9999@gmail.com>",
