@@ -7,8 +7,19 @@ import App from './components/App';
 import rootReducer from './reducers';
 import './styles/app.scss';
 import { IStoreState } from './types';
+import { loadState, saveState } from './util/localStorage';
+import throttle from './util/throttle';
 
-const store = createStore<IStoreState>(rootReducer);
+const persistedState: any = loadState();
+if (persistedState) {
+  persistedState.visibilityFilter = null;
+}
+const store = createStore<IStoreState>(rootReducer, persistedState);
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState());
+  }, 1000)
+);
 
 const app = (
   <Provider store={store}>
