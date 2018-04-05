@@ -53,3 +53,10 @@ export const deleteTodo = (id: string): ActionTypes.IDeleteTodoAction => ({
   payload: { id },
   type: keys.DELETE_TODO,
 });
+
+export const changeFilter = (
+  visibilityFilter: Types.TodoStatus | null
+): ActionTypes.IChangeFilterAction => ({
+  payload: { visibilityFilter },
+  type: keys.CHANGE_FILTER,
+});

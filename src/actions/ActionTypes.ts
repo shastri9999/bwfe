@@ -1,4 +1,4 @@
-import { ITodo, UserType } from '../types';
+import { ITodo, TodoStatus, UserType } from '../types';
 import keys from './ActionTypeKeys';
 
 export interface ISignInAction {
@@ -49,6 +49,13 @@ export interface IDeleteTodoAction {
   };
 }
 
+export interface IChangeFilterAction {
+  readonly type: keys.CHANGE_FILTER;
+  readonly payload: {
+    readonly visibilityFilter: TodoStatus | null;
+  };
+}
+
 type ActionTypes =
   | ISignInAction
   | ISignOutAction
@@ -56,6 +63,7 @@ type ActionTypes =
   | IEditTodoAction
   | IMarkTodoCompleteAction
   | IMarkTodoInCompleteAction
-  | IDeleteTodoAction;
+  | IDeleteTodoAction
+  | IChangeFilterAction;
 
 export default ActionTypes;

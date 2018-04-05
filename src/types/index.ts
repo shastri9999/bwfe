@@ -18,4 +18,5 @@ export interface ITodo {
 export interface IStoreState {
   readonly authenticatedUser: UserType | null;
   readonly todos: ReadonlyArray<ITodo>;
+  readonly visibilityFilter: TodoStatus | null;
 }

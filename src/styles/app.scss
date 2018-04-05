@@ -68,9 +68,23 @@ $padding: 20px;
           border-radius: 5px;
         }
       }
+      .filters {
+        .action {
+          font-size: 12px;
+          margin-right: 12px;
+          &.active {
+            color: $primary-color;
+            font-weight: 700;
+          }
+        }
+      }
       .todos {
         display: flex;
         flex-wrap: wrap;
+        .error {
+          padding: 30px 30px 0px 0px;
+          color: grey;
+        }
       }
     }
   }
